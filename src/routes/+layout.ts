@@ -12,15 +12,19 @@ export const load: LayoutLoad = async ({ data, depends, fetch }) => {
 
 	const supabase = isBrowser()
 		? createBrowserClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, {
-				...SUPABASE_CONFIG,
 				global: {
-					fetch
+					fetch,
+					headers: {
+						'sb-lb-routing-mode': 'alpha-all-services'
+					}
 				}
 			})
 		: createServerClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, {
-				...SUPABASE_CONFIG,
 				global: {
-					fetch
+					fetch,
+					headers: {
+						'sb-lb-routing-mode': 'alpha-all-services'
+					}
 				},
 				cookies: {
 					getAll() {

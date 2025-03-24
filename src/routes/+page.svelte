@@ -7,7 +7,7 @@
 	<ul>
 		{#each data.companies as company (company.id)}
 			<li class="list-disc">
-				{company.name.charAt(0)}...{company.name.charAt(company.name.length - 1)}
+				{company.id}
 			</li>
 		{/each}
 	</ul>

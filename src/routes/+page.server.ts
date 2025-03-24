@@ -9,7 +9,7 @@ export const load: PageServerLoad = async ({ locals: { supabase } }) => {
 
 	const { data: companies, error: companiesError } = await supabase
 		.from('companies')
-		.select('*')
+		.select('id')
 		.limit(5)
 
 	if (companiesError) {
